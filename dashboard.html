@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <section>
+      <div>
+        <header>
+          <section class="navigation">
+            <div class="nav-container" id="nav-container">
+              <div class="brand">
+                <a href="http://127.0.0.1:5500/">
+                  <img src="/src/images/logo.png" width="145px" height="55px" />
+                </a>
+              </div>
+
+              <nav>
+                <div class="nav-mobile">
+                  <a id="nav-toggle" href="http://127.0.0.1:5500/"
+                    ><span></span
+                  ></a>
+                </div>
+                <div
+                  class="user"
+                  style="
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    cursor: pointer;
+                  "
+                >
+                  <img
+                    src="/src/images/img2.jpg"
+                    alt=""
+                    style="border-radius: 50%; height: 30px; width: 30px"
+                  />
+                  <h4>John Doe</h4>
+                </div>
+              </nav>
+            </div>
+          </section>
+        </header>
+      </div>
+      <div class="main">
+        <div class="main-child1">
+          <h2>Add a New Blog</h2>
+          <div class="blog">
+            <form id="blogForm">
+              <input type="text" placeholder="Blog Title" id="blogTitle" name="title" required />
+              <input
+                type="text "
+                placeholder="Blog Category"
+                id="blogCategory"
+                name="category"
+                required
+              />
+
+              <textarea
+                type="text"
+                placeholder="Blog Description"
+                id="blogContent" name="content" required
+              ></textarea>
+              <input type="file" id="blogImage" name="image" accept="image/*" required/>
+
+              <button type="button" onclick="createBlog()">Create Blog</button>
+            </form>
+          </div>
+        </div>
+        <div class="main-child2">
+          <h2>Your Blogs list:</h2>
+          <div id="blogList">
+            <!-- Blog titles will be displayed here -->
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+    <script>
+      function createBlog() {
+        const title = document.getElementById("blogTitle").value;
+        const content = document.getElementById("blogContent").value;
+        const category = document.getElementById("blogCategory").value;
+        const image = document.getElementById("blogImage").files[0];
+
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("content", content);
+        formData.append("category", category);
+        formData.append("image", image);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:3000/blogs", true);
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 201) {
+              // Blog created successfully
+              alert("Blog created successfully");
+              loadBlogList(); // Refresh the blog list
+            } else {
+              console.error("Error creating blog:", xhr.status, xhr.statusText);
+              alert("Error creating blog. Check console for details.");
+            }
+          }
+        };
+
+        xhr.send(formData);
+      }
+
+      // function saveBlog() {
+      //   var title = document.getElementById("title").value;
+      //   var content = document.getElementById("content").value;
+      //   var category = document.getElementById("category").value;
+
+      //   // Make an AJAX request to the server
+      //   var xhr = new XMLHttpRequest();
+      //   xhr.open("POST", "http://localhost:3000/saveBlog", true);
+      //   xhr.setRequestHeader("Content-Type", "application/json");
+
+      //   xhr.onreadystatechange = function () {
+      //     if (xhr.readyState === XMLHttpRequest.DONE) {
+      //       if (xhr.status === 200) {
+      //         alert(xhr.responseText);
+      //         // Reload blog list after saving
+      //         // loadBlogList();
+      //       } else {
+      //         console.error("Error saving blog:", xhr.status, xhr.statusText);
+      //         alert("Error saving blog. Check console for details.");
+      //       }
+      //     }
+      //   };
+
+      //   xhr.send(JSON.stringify({ title, category, content }));
+      // }
+
+
+      function loadBlogList() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:3000/blogs", true);
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            console.log(xhr.responseText);
+            if (xhr.status === 200) {
+              // Update the blog list with clickable titles
+              updateBlogList(JSON.parse(xhr.responseText));
+              console.log(xhr.responseText);
+            } else {
+              console.error(
+                "Error loading blog list: ",
+                xhr.status,
+                xhr.statusText
+              );
+              alert("Error loading blog list. Check console for details.");
+            }
+          }
+        };
+
+        xhr.send();
+      }
+
+      function updateBlogList(blogsData) {
+        // Assuming blogsData is an object with a 'blogs' property containing an array
+        const blogs = blogsData.blogs;
+
+        // Assuming you have an HTML element with id 'blog-list'
+        const blogListElement = document.getElementById("blogList");
+
+        // Clear the existing content
+        blogListElement.innerHTML = "";
+
+        // Iterate through the array of blogs and create clickable titles
+        blogs.forEach((blog) => {
+          const titleElement = document.createElement("a");
+          titleElement.textContent = blog.title;
+          titleElement.href = `/blogs/${blog.title}.html`;
+
+          // Add an event listener to handle click events
+          titleElement.addEventListener("click", function () {
+            // Assuming you have a function to display the blog content
+            displayBlogContent(blog.content);
+          });
+
+          // Append the title to the blog list
+          blogListElement.appendChild(titleElement);
+        });
+      }
+
+      function displayBlogContent(content) {
+        // Assuming you have an HTML element with id 'blog-content'
+        const blogContentElement = document.getElementById("blog-content");
+
+        // Display the content
+        blogContentElement.textContent = content;
+      }
+
+      // Load the blog list when the page loads
+      loadBlogList();
+    </script>
+  </body>
+</html>

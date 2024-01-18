@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog app</title>
+
+    <!-- Css files -->
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <!--navigation bar-->
+      <section class="navigation">
+        <div class="nav-container" id="nav-container">
+          <div class="brand">
+            <a href="#">
+              <img src="/src/images/logo.png" width="145px" height="55px" />
+            </a>
+          </div>
+
+          <nav>
+            <div class="nav-mobile">
+              <a id="nav-toggle" href="#!" 
+                ><span></span
+              ></a>
+            </div>
+            <ul class="nav-list">
+              <li><a href="#">Home</a></li>
+              <li><a href="#blog">Blog</a></li>
+            </ul>
+          </nav>
+          <button id="primary-btn"><a href="http://127.0.0.1:5500/dashboard.html">Add new Blog</a></button>
+        </div>
+      </section>
+    </header>
+    <!-- header -->
+
+    <!-- hero section start -->
+    <section id="home" class="hero-section">
+      <div class="hero-div">
+        <div class="hero-left">
+          <h2>
+            All you wanted to know about working with designers and creating
+            delightful porduct experiences.
+          </h2>
+        </div>
+        <div class="hero-right">
+          <img src="/src/images/22.png" alt="" />
+        </div>
+      </div>
+      <!-- hero-div end -->
+
+      <div class="div-card">
+        <div class="div-img"><img src="/src/images/div-img.jpg" alt="" /></div>
+        <div class="div-text">
+          <h4 class="blog-category">UI DESIGN</h4>
+          <h2 class="blog-title">Card UI Examples and Best Practices For Product Owners</h2>
+          <span class="blog-desc" >Now in 2024, more then 2.7 billion mobile app user in the world
+            prefer Androidapps. We follow Lorem ipsum, dolor sit amet
+            consectetur adipisicing elit. Dolores velit illo quia, temporibus
+            dolorem assumenda? A, nobis sequi molestias, ullam atque ipsa aut
+            necessitatibus error, esse sint consequuntur! Laudantium,
+            quia.</span
+          >
+        </div>
+      </div>
+    </section>
+    <!-- hero section end  -->
+
+    <section id="blog" class="tabs-section">
+      
+      <div class="tabs">
+        <div class="tabs-child1">
+          <h2>All Post</h2>
+          <div id="ver-divider"></div>
+          <div class="tabs-child2">
+            <h3 data-tab-target="#all" class="active">All</h3>
+            <h3 data-tab-target="#web-apps">Business</h3>
+            <h3 data-tab-target="#mini-blogs">Tech</h3>
+          </div>
+        </div>
+
+        <div >
+          <input class="search-bar" type="text" placeholder="Search Here">
+        </div>
+      </div>
+      <div class="tab-content">
+        <div id="all" data-tab-content class="active">
+          <div id="tab-content-container">
+            <div id="blog-card" >
+              <img src="src/images/img1.jpg" alt="" />
+              <h4 class="blog-category">Tech</h4>
+              <h3 class="blog-title">Card UI Examples and Best Practices For Product Owners</h3>
+              <p class="blog-desc">
+                A user-friendly pet adoption website connecting people with
+                their furry companions. You can search for and learn about
+                pets available for adoption. I built this with love for
+                animals and the web.
+              </p>
+            </div>
+            <div id="blog-card" >
+              <img src="src/images/img2.jpg" alt="" />
+              <h4 class="blog-category">Tech</h4>
+              <h3 class="blog-title">Card UI Examples and Best Practices For Product Owners</h3>
+              <p class="blog-desc">
+                A user-friendly pet adoption website connecting people with
+                their furry companions. You can search for and learn about
+                pets available for adoption. I built this with love for
+                animals and the web.
+              </p>
+            </div>
+            <div id="blog-card" >
+              <img src="src/images/img3.jpg" alt="" />
+              <h4 class="blog-category">Tech</h4>
+              <h3 class="blog-title">Card UI Examples and Best Practices For Product Owners</h3>
+              <p class="blog-desc">
+                A user-friendly pet adoption website connecting people with
+                their furry companions. You can search for and learn about
+                pets available for adoption. I built this with love for
+                animals and the web.
+              </p>
+            </div>
+
+            <div id="blog-card" >
+              <img src="src/images/img1.jpg" alt="" />
+              <h4 class="blog-category">Tech</h4>
+              <h3 class="blog-title">Card UI Examples and Best Practices For Product Owners</h3>
+              <p class="blog-desc">
+                A user-friendly pet adoption website connecting people with
+                their furry companions. You can search for and learn about
+                pets available for adoption. I built this with love for
+                animals and the web.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+        <div id="web-apps" data-tab-content>
+           <div id="tab-content-container">
+            <div id="blog-card" >
+              <img src="src/images/img2.jpg" alt="" />
+              <h4 class="blog-category">Tech</h4>
+              <h3 class="blog-title">Card UI Examples and Best Practices For Product Owners</h3>
+              <p class="blog-desc">
+                A user-friendly pet adoption website connecting people with
+                their furry companions. You can search for and learn about
+                pets available for adoption. I built this with love for
+                animals and the web.
+              </p>
+            </div>
+            <div id="blog-card" >
+              <img src="src/images/img3.jpg" alt="" />
+              <h4 class="blog-category">Tech</h4>
+              <h3 class="blog-title">Card UI Examples and Best Practices For Product Owners</h3>
+              <p class="blog-desc">
+                A user-friendly pet adoption website connecting people with
+                their furry companions. You can search for and learn about
+                pets available for adoption. I built this with love for
+                animals and the web.
+              </p>
+            </div>
+
+
+          </div> 
+        </div>
+        <div id="mini-blogs" data-tab-content>
+           <div id="tab-content-container">
+
+            <div id="blog-card" >
+              <img src="src/images/img3.jpg" alt="" />
+              <h4 class="blog-category">Tech</h4>
+              <h3 class="blog-title">Card UI Examples and Best Practices For Product Owners</h3>
+              <p class="blog-desc">
+                A user-friendly pet adoption website connecting people with
+                their furry companions. You can search for and learn about
+                pets available for adoption. I built this with love for
+                animals and the web.
+              </p>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- blog cards end -->
+
+    <footer class="footer">
+      <span>Copyright &copy; <a href="http://github.com/rohangosavi7">Rohan Gosavi</a></span>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>

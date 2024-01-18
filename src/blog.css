@@ -1,0 +1,62 @@
+body {
+    background-color: #ecebf7;
+    color: #0d0b16;
+    overflow-x: hidden;
+    margin: 0 10rem;
+    font-family: "Open Sans";
+    padding: 8rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1vmax;
+  }
+  
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans";
+  
+    --color-bg: #ecebf7;
+    --color-primary: #675eae;
+    --color-text: #0d0b16;
+  }
+  
+  
+  #primary-btn {
+    border: none;
+    border-radius: 10px;
+    margin: 0;
+    background-color: var(--color-primary);
+    padding: 0.7rem 1.2rem;
+  }
+  #primary-btn > a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+  }
+  #primary-btn:hover {
+    background-color: #5c549d;
+  }
+  
+  #ver-divider{
+    height: 100%;
+    width: 2px;
+    height: 60%;
+    background-color: #acacace1;
+  }
+
+#blog-title, h1{
+    font-size: 3rem;
+    color: #0d0b16;
+}
+#blog-category, h4{
+    font-size: 15px;
+    color: var(--color-primary);
+    text-transform: uppercase;
+}
+#blog-content, p{
+    font-size: 20px;
+    color: #0d0b16;
+}

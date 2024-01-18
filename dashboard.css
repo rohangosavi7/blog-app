@@ -1,0 +1,145 @@
+body {
+  background-color: #ecebf7;
+  color: #0d0b16;
+  overflow-x: hidden;
+  margin: 0 10rem;
+  padding-bottom: 2rem;
+  font-family: "Open Sans";
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+
+  --color-bg: #ecebf7;
+  --color-primary: #675eae;
+  --color-text: #0d0b16;
+}
+
+/*Common clasess*/
+
+.text-center {
+  text-align: center;
+}
+a {
+  font-family: "Open Sans";
+  font-weight: 500;
+}
+a:hover {
+  color: #675eae;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", sans-serif;
+}
+
+#primary-btn {
+  border: none;
+  border-radius: 10px;
+  margin: 0;
+  background-color: var(--color-primary);
+  padding: 0.7rem 1.2rem;
+}
+#primary-btn > a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+}
+#primary-btn:hover {
+  background-color: #5c549d;
+}
+
+#ver-divider {
+  width: 20px;
+  height: 60%;
+  background-color: #000000e1;
+}
+/* header*/
+header {
+  position: relative;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-top: 2rem;
+  height: auto;
+  width: 100%;
+}
+.main-child1 {
+  position: relative;
+  height: auto;
+  width: 70%;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-right: 2px solid #d5d5d5;
+}
+.main-child2{
+  position: relative;
+  height: 100%;
+  width: 30%;
+  background-color: #ffffff;
+  padding: 2rem;
+}
+.main-child2 #blogList{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.main-child2 #blogList a{
+  margin: 5px 0;
+  color: #0d0b16;
+  font-size: 20px;
+  text-decoration: none;
+}
+.main-child2 #blogList a:hover{
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+.blog #blogForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+input,
+button {
+  margin: 20px 0;
+  border: 1px solid #d5d5d5;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 18px;
+}
+.blog > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.blog > button {
+  cursor: pointer;
+  text-align: left;
+  color: #fff;
+  background-color: var(--color-primary);
+}
+.blog > button:hover {
+  background-color: #5c549d;
+}
+#blogContent {
+  height: 20vmax;
+  margin: 20px 0;
+  border: 1px solid #d5d5d5;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 18px;
+}
